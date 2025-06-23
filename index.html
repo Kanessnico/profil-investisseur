@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Profil Épargnant – IZYS</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #b46cf4, #a65fe2);
+      color: #fff;
+      padding: 2rem;
+      margin: auto;
+      max-width: 900px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+    }
+    .question {
+      background: rgba(255,255,255,0.1);
+      margin: 1.5rem 0;
+      padding: 1rem;
+      border-left: 6px solid #fff;
+      border-radius: 10px;
+    }
+    label {
+      display: block;
+      margin: 0.6rem 0;
+    }
+    button {
+      background: #fff;
+      color: #7e3ff2;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 1rem 0 0;
+      cursor: pointer;
+    }
+    #result {
+      background: rgba(0,0,0,0.2);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      button {
+        display: block;
+        width: 100%;
+        margin: 1rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Quel type d’épargnant êtes-vous ?</h1>
+  <form id="quiz">
+    <!-- 11 questions simulées pour cette version -->
+    <div class="question">
+        <label>1. Question 1</label>
+        <label><input type="radio" name="q1" value="1"> Réponse 1</label>
+        <label><input type="radio" name="q1" value="2"> Réponse 2</label>
+        <label><input type="radio" name="q1" value="3"> Réponse 3</label>
+      </div>
+<div class="question">
+        <label>2. Question 2</label>
+        <label><input type="radio" name="q2" value="1"> Réponse 1</label>
+        <label><input type="radio" name="q2" value="2"> Réponse 2</label>
+        <label><input type="radio" name="q2" value="3"> Réponse 3</label>
+      </div>
+<div class="question">
+        <label>3. Question 3</label>
+        <label><input type="radio" name="q3" value="1"> Réponse 1</label>
+        <label><input type="radio" name="q3" value="2"> Réponse 2</label>
+        <label><input type="radio" name="q3" value="3"> Réponse 3</label>
+      </div>
+<div class="question">
+        <label>4. Question 4</label>
+        <label><input type="radio" name="q4" value="1"> Réponse 1</label>
+        <label><input type="radio" name="q4" value="2"> Réponse 2</label>
+        <label><input type="radio" name="q4" value="3"> Réponse 3</label>
+      </div>
+<div class="question">
+        <label>5. Question 5</label>
+        <label><input type="radio" name="q5" value="1"> Réponse 1</label>
+        <label><input type="radio" name="q5" value="2"> Réponse 2</label>
+        <label><input type="radio" name="q5" value="3"> Réponse 3</label>
+      </div>
+<div class="question">
+        <label>6. Question 6</label>
+        <label><input type="radio" name="q6" value="1"> Réponse 1</label>
+        <label><input type="radio" name="q6" value="2"> Réponse 2</label>
+        <label><input type="radio" name="q6" value="3"> Réponse 3</label>
+      </div>
+<div class="question">
+        <label>7. Question 7</label>
+        <label><input type="radio" name="q7" value="1"> Réponse 1</label>
+        <label><input type="radio" name="q7" value="2"> Réponse 2</label>
+        <label><input type="radio" name="q7" value="3"> Réponse 3</label>
+      </div>
+<div class="question">
+        <label>8. Question 8</label>
+        <label><input type="radio" name="q8" value="1"> Réponse 1</label>
+        <label><input type="radio" name="q8" value="2"> Réponse 2</label>
+        <label><input type="radio" name="q8" value="3"> Réponse 3</label>
+      </div>
+<div class="question">
+        <label>9. Question 9</label>
+        <label><input type="radio" name="q9" value="1"> Réponse 1</label>
+        <label><input type="radio" name="q9" value="2"> Réponse 2</label>
+        <label><input type="radio" name="q9" value="3"> Réponse 3</label>
+      </div>
+<div class="question">
+        <label>10. Question 10</label>
+        <label><input type="radio" name="q10" value="1"> Réponse 1</label>
+        <label><input type="radio" name="q10" value="2"> Réponse 2</label>
+        <label><input type="radio" name="q10" value="3"> Réponse 3</label>
+      </div>
+<div class="question">
+        <label>11. Question 11</label>
+        <label><input type="radio" name="q11" value="1"> Réponse 1</label>
+        <label><input type="radio" name="q11" value="2"> Réponse 2</label>
+        <label><input type="radio" name="q11" value="3"> Réponse 3</label>
+      </div>
+    <button type="submit">Voir mon profil</button>
+    <button type="button" id="restart" style="display:none;">Recommencer</button>
+    <button type="button" id="download" style="display:none;">Télécharger</button>
+  </form>
+  <div id="result"></div>
+  <script>
+    const quiz = document.getElementById("quiz");
+    const result = document.getElementById("result");
+    const restartBtn = document.getElementById("restart");
+    const downloadBtn = document.getElementById("download");
+
+    quiz.addEventListener("submit", function (e) {
+      e.preventDefault();
+      let score = 0;
+      const data = new FormData(quiz);
+      for (let v of data.values()) score += parseInt(v);
+
+      let profile = "";
+      if (score <= 16) {
+        profile = "<strong>Profil Prudent 🛡️</strong><br>Vous recherchez la sécurité, avec un faible appétit pour le risque.";
+      } else if (score <= 24) {
+        profile = "<strong>Profil Équilibré ⚖️</strong><br>Modérément à l’aise avec le risque, vous diversifiez avec prudence.";
+      } else {
+        profile = "<strong>Profil Dynamique 🚀</strong><br>À la recherche de performance, vous acceptez la volatilité pour croître.";
+      }
+
+      result.innerHTML = profile + "<p style='margin-top:1rem;font-size:0.9rem;color:#ddd'>Ce test est pédagogique et ne constitue pas un conseil financier.</p>";
+      restartBtn.style.display = "inline-block";
+      downloadBtn.style.display = "inline-block";
+    });
+
+    restartBtn.onclick = () => {
+      quiz.reset();
+      result.innerHTML = "";
+      restartBtn.style.display = "none";
+      downloadBtn.style.display = "none";
+    };
+
+    downloadBtn.onclick = () => {
+      const text = result.innerText;
+      const blob = new Blob([text], { type: 'application/pdf' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = "profil_epargnant_IZYS.pdf";
+      a.click();
+    };
+  </script>
+</body>
+</html>
