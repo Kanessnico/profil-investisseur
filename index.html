@@ -3,28 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Profil Épargnant – IZYS</title>
+  <title>Test de Profil Épargnant – Izys app</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #b46cf4, #a65fe2);
-      color: #fff;
+      background: linear-gradient(135deg, #8853f3, #c198f9);
+      color: #ffffff;
       padding: 2rem;
       max-width: 900px;
       margin: auto;
     }
     h1 { text-align: center; font-size: 2.5rem; }
     .question {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.12);
       margin: 1.5rem 0;
       padding: 1rem;
-      border-left: 6px solid #fff;
+      border-left: 6px solid #ffffff;
       border-radius: 10px;
     }
     label { display: block; margin: 0.5rem 0; }
     button {
-      background: #fff;
+      background: #ffffff;
       color: #7e3ff2;
       font-weight: bold;
       border: none;
@@ -38,7 +38,7 @@
       margin-top: 2rem;
       padding: 1.5rem;
       border-radius: 10px;
-      background: rgba(0,0,0,0.2);
+      background: rgba(255,255,255,0.12);
       font-size: 1.1rem;
     }
     @media (max-width: 600px) {
@@ -49,8 +49,67 @@
   </style>
 </head>
 <body>
-  <h1>Quel type d’épargnant êtes-vous ?</h1>
-  <form id="quiz"></form>
+  <h1>Test de Profil Épargnant – Izys app</h1>
+  <form id="quiz">
+<div class="question"><label>1. Quel est votre âge ?</label>
+  <label><input type="radio" name="q1" value="1"> Moins de 35 ans</label>
+  <label><input type="radio" name="q1" value="2"> Entre 35 et 55 ans</label>
+  <label><input type="radio" name="q1" value="3"> Plus de 55 ans</label>
+</div>
+<div class="question"><label>2. Quel est votre niveau de connaissance en investissement ?</label>
+  <label><input type="radio" name="q2" value="1"> Faible</label>
+  <label><input type="radio" name="q2" value="2"> Moyen</label>
+  <label><input type="radio" name="q2" value="3"> Élevé</label>
+</div>
+<div class="question"><label>3. Quel est votre horizon de placement ?</label>
+  <label><input type="radio" name="q3" value="1"> Inférieur à 2 ans</label>
+  <label><input type="radio" name="q3" value="2"> Entre 2 et 5 ans</label>
+  <label><input type="radio" name="q3" value="3"> Supérieur à 5 ans</label>
+</div>
+<div class="question"><label>4. Quel niveau de risque êtes-vous prêt à accepter ?</label>
+  <label><input type="radio" name="q4" value="1"> Faible</label>
+  <label><input type="radio" name="q4" value="2"> Modéré</label>
+  <label><input type="radio" name="q4" value="3"> Élevé</label>
+</div>
+<div class="question"><label>5. Quelle perte seriez-vous prêt à accepter sur une année ?</label>
+  <label><input type="radio" name="q5" value="1"> Moins de 5%</label>
+  <label><input type="radio" name="q5" value="2"> Entre 5% et 15%</label>
+  <label><input type="radio" name="q5" value="3"> Plus de 15%</label>
+</div>
+<div class="question"><label>6. Quel type de rendement recherchez-vous ?</label>
+  <label><input type="radio" name="q6" value="1"> Faible mais sécurisé</label>
+  <label><input type="radio" name="q6" value="2"> Équilibré</label>
+  <label><input type="radio" name="q6" value="3"> Élevé</label>
+</div>
+<div class="question"><label>7. Quelle part de votre épargne êtes-vous prêt à investir ?</label>
+  <label><input type="radio" name="q7" value="1"> Moins de 25%</label>
+  <label><input type="radio" name="q7" value="2"> Entre 25% et 75%</label>
+  <label><input type="radio" name="q7" value="3"> Plus de 75%</label>
+</div>
+<div class="question"><label>8. Avez-vous déjà investi en bourse ou dans des unités de compte ?</label>
+  <label><input type="radio" name="q8" value="1"> Jamais</label>
+  <label><input type="radio" name="q8" value="2"> Une fois ou deux</label>
+  <label><input type="radio" name="q8" value="3"> Régulièrement</label>
+</div>
+<div class="question"><label>9. En cas de perte de 10 % sur votre placement, vous :</label>
+  <label><input type="radio" name="q9" value="1"> Retirez tout</label>
+  <label><input type="radio" name="q9" value="2"> Attendez</label>
+  <label><input type="radio" name="q9" value="3"> Investissez davantage</label>
+</div>
+<div class="question"><label>10. Votre capacité à gérer des fluctuations importantes est :</label>
+  <label><input type="radio" name="q10" value="1"> Faible</label>
+  <label><input type="radio" name="q10" value="2"> Modérée</label>
+  <label><input type="radio" name="q10" value="3"> Bonne</label>
+</div>
+<div class="question"><label>11. Quel est votre objectif principal ?</label>
+  <label><input type="radio" name="q11" value="1"> Préserver le capital</label>
+  <label><input type="radio" name="q11" value="2"> Équilibrer sécurité et rendement</label>
+  <label><input type="radio" name="q11" value="3"> Maximiser le rendement</label>
+</div>
+<button type="submit">Voir mon profil</button>
+<button type="button" id="restart" style="display:none;">Recommencer</button>
+<button type="button" id="download" style="display:none;">Télécharger</button>
+</form>
   <div id="result"></div>
 
   <script>
@@ -66,21 +125,7 @@
       "Quel est votre objectif principal ?"
     ];
 
-    const buildForm = () => {
-      const formHTML = questions.map((q, i) => `
-        <div class="question">
-          <label>${i + 1}. ${q}</label>
-          <label><input type="radio" name="q${i + 1}" value="1"> Réponse 1</label>
-          <label><input type="radio" name="q${i + 1}" value="2"> Réponse 2</label>
-          <label><input type="radio" name="q${i + 1}" value="3"> Réponse 3</label>
-        </div>`).join("") +
-        '<button type="submit">Voir mon profil</button>' +
-        '<button type="button" id="restart" style="display:none;">Recommencer</button>' +
-        '<button type="button" id="download" style="display:none;">Télécharger en PDF</button>';
-      quiz.innerHTML = formHTML;
-    };
-
-    buildForm();
+    
 
     quiz.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -97,7 +142,7 @@
         profile = "<strong>Profil Dynamique 🚀</strong><br>Vous êtes prêt à prendre des risques pour maximiser votre rendement.";
       }
 
-      result.innerHTML = profile + "<p style='margin-top:1rem;font-size:0.9rem;color:#eee'>Ce test est pédagogique et ne constitue pas un conseil financier.</p>";
+      result.innerHTML = profile + "<p style='margin-top:1rem;font-size:0.9rem;color:#f8f8f8'>Ce test est pédagogique et ne constitue pas un conseil financier.</p>";
       document.getElementById("restart").style.display = "inline-block";
       document.getElementById("download").style.display = "inline-block";
     });
@@ -121,8 +166,8 @@
   </script>
 
   <footer style="background: rgba(0, 0, 0, 0.2); padding: 2rem; text-align: center; border-radius: 20px; margin-top: 4rem;">
-    <p style="margin: 0; font-size: 0.9rem; color: #eee;">© 2025 IZYS</p>
-    <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #ddd;">
+    <p style="margin: 0; font-size: 0.9rem; color: #f8f8f8;">© 2025 IZYS</p>
+    <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #f8f8f8;">
       L’ensemble du contenu présent sur ce site (textes, images, graphismes, logo, icônes, etc.) est la propriété intellectuelle exclusive de SAS IZYS APP, sauf mention contraire, et ne peut être reproduit sans autorisation préalable.
     </p>
   </footer>
