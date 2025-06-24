@@ -155,13 +155,67 @@
         document.getElementById("download").style.display = "none";
       }
 
-      if (e.target.id === "download") {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        doc.setFontSize(14);
-        doc.text(result.innerText, 10, 20);
-        doc.save("profil_epargnant_IZYS.pdf");
-      }
+      
+
+
+if (e.target.id === "download") {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  let y = 20;
+
+  doc.setFont("helvetica", "bold");
+  doc.setTextColor(126, 63, 242); // Violet IZYS
+  doc.setFontSize(18);
+  doc.text("Quel type d'épargnant êtes-vous ? Izys App", 105, y, { align: "center" });
+
+  y += 15;
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(0);
+  doc.setFontSize(12);
+
+  const data = new FormData(quiz);
+  const answers = Array.from(data.entries());
+
+  answers.forEach(([key, value], index) => {
+    const questionText = questions[index];
+    const selected = quiz.querySelector(`input[name="${key}"][value="${value}"]`);
+    const label = selected ? selected.parentElement.innerText.replace(/^!['’] /, '') : "(non répondu)";
+
+    doc.setTextColor(126, 63, 242); // Question en violet
+    doc.setFont(undefined, "bold");
+    doc.text(`${index + 1}. ${questionText}`, 10, y);
+    y += 7;
+
+    doc.setTextColor(0);
+    doc.setFont(undefined, "normal");
+    doc.text(`• ${label}`, 14, y);
+    y += 10;
+
+    if (y > 270) {
+      doc.addPage();
+      y = 20;
+    }
+  });
+
+  y += 5;
+  doc.setTextColor(126, 63, 242);
+  doc.setFont(undefined, "bold");
+  doc.text("Profil détecté :", 10, y);
+  y += 8;
+
+  doc.setFont(undefined, "normal");
+  doc.setTextColor(0);
+
+  // Nettoyage renforcé : supprime tout caractère non lettre, ponctuation ou espace classique
+  const cleanText = result.innerText.replace(/[^\w\s.,;:!?éèêàâùçÉÈÊÀÂÛÇ\-]/g, '').trim();
+  doc.text(cleanText, 10, y, { maxWidth: 190 });
+
+  y += 20;
+  doc.save("profil_epargnant_IZYS.pdf");
+}
+
+
+
     });
   </script>
 
